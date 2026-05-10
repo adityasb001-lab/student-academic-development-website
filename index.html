@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Academic & Development Website</title>
+  <meta name="description" content="A professional student productivity website for tracking academics, physical exercises, and daily goals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">
+        <span class="brand-mark">SA</span>
+        <span>
+          <strong>Student Academic</strong>
+          <small>Development Website</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#planner">Planner</a>
+        <a href="#insights">Insights</a>
+        <a href="#references">References</a>
+      </nav>
+
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme">
+        <span class="icon">◐</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Front-End Web Development Project</span>
+          <h1>Plan academics, exercise, and daily goals in one clean workspace.</h1>
+          <p class="lead">
+            Built for students who want a simple, browser-based productivity tool to manage tasks with deadlines,
+            priorities, and progress tracking.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#planner">Open Planner</a>
+            <a class="btn btn-secondary" href="#about">Read Project Brief</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <strong id="statTotal">0</strong>
+              <span>Total tasks</span>
+            </div>
+            <div class="stat-card">
+              <strong id="statActive">0</strong>
+              <span>Active tasks</span>
+            </div>
+            <div class="stat-card">
+              <strong id="statDone">0</strong>
+              <span>Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel glass">
+          <div class="panel-top">
+            <div>
+              <p class="panel-label">Today’s focus</p>
+              <h2>Stay on track without feeling overwhelmed.</h2>
+            </div>
+            <span class="badge badge-live">Live</span>
+          </div>
+
+          <div class="focus-list">
+            <article class="focus-item">
+              <span class="dot dot-academic"></span>
+              <div>
+                <h3>Academic tasks</h3>
+                <p>Assignments, revision, deadlines, and exam prep.</p>
+              </div>
+            </article>
+            <article class="focus-item">
+              <span class="dot dot-fitness"></span>
+              <div>
+                <h3>Physical goals</h3>
+                <p>Exercise, steps, hydration, and healthy habits.</p>
+              </div>
+            </article>
+            <article class="focus-item">
+              <span class="dot dot-personal"></span>
+              <div>
+                <h3>Personal tasks</h3>
+                <p>Chores, reminders, and daily routines.</p>
+              </div>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container two-col">
+        <div class="section-heading">
+          <span class="eyebrow">Project brief</span>
+          <h2>Why this website exists</h2>
+        </div>
+
+        <div class="content-card">
+          <h3>Abstract</h3>
+          <p>
+            Due to the mindless use of social media and doom-scrolling, students often struggle with tracking and
+            prioritizing their tasks. This website helps students manage academic work and physical exercise in a
+            single, easy-to-use interface.
+          </p>
+
+          <h3>Introduction</h3>
+          <p>
+            In a competitive academic era, students need digital tools that are simple, accessible, and effective.
+            This project provides a user-friendly productivity website that runs in any modern web browser.
+          </p>
+
+          <h3>Related works</h3>
+          <p>
+            Tools like Google Keep, Todoist, and Notion are powerful, but they can feel advanced or overwhelming for
+            beginners. This project keeps the interface minimal while still offering the core productivity features
+            students need.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section alt">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Features</span>
+          <h2>Built to be professional, responsive, and practical</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Add, edit, delete</h3>
+            <p>Manage tasks quickly with an intuitive form and one-click actions.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Deadlines & priorities</h3>
+            <p>Track due dates, urgency, and task categories in a structured way.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Search & filter</h3>
+            <p>Find academic, fitness, and personal tasks instantly.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Local storage</h3>
+            <p>Your tasks stay saved in the browser even after refresh or restart.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="planner" class="section">
+      <div class="container planner-grid">
+        <div class="planner-card glass">
+          <div class="section-heading">
+            <span class="eyebrow">Task manager</span>
+            <h2>Create your daily plan</h2>
+          </div>
+
+          <form id="taskForm" class="task-form" novalidate>
+            <input type="hidden" id="taskId" />
+
+            <div class="form-row">
+              <label for="title">Task title</label>
+              <input id="title" name="title" type="text" placeholder="e.g. Complete mathematics assignment" maxlength="80" required />
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                  <option value="Academic">Academic</option>
+                  <option value="Fitness">Fitness</option>
+                  <option value="Personal">Personal</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="priority">Priority</label>
+                <select id="priority" name="priority" required>
+                  <option value="High">High</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="deadline">Deadline</label>
+                <input id="deadline" name="deadline" type="datetime-local" required />
+              </div>
+
+              <div class="form-row">
+                <label for="notes">Notes</label>
+                <input id="notes" name="notes" type="text" placeholder="Optional details" maxlength="120" />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit" id="submitBtn">Add task</button>
+              <button class="btn btn-secondary" type="button" id="clearBtn">Clear form</button>
+            </div>
+            <p id="formMsg" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="planner-card glass">
+          <div class="section-heading">
+            <span class="eyebrow">Task list</span>
+            <h2>Organize, sort, and complete tasks</h2>
+          </div>
+
+          <div class="toolbar">
+            <div class="search-wrap">
+              <input id="searchInput" type="search" placeholder="Search tasks..." aria-label="Search tasks" />
+            </div>
+            <div class="filter-row">
+              <select id="filterCategory" aria-label="Filter by category">
+                <option value="All">All categories</option>
+                <option value="Academic">Academic</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Personal">Personal</option>
+              </select>
+              <select id="filterStatus" aria-label="Filter by status">
+                <option value="All">All statuses</option>
+                <option value="Active">Active</option>
+                <option value="Completed">Completed</option>
+              </select>
+              <select id="sortBy" aria-label="Sort tasks">
+                <option value="deadline">Sort by deadline</option>
+                <option value="priority">Sort by priority</option>
+                <option value="created">Sort by newest</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="taskList" class="task-list" aria-live="polite"></div>
+
+          <div id="emptyState" class="empty-state">
+            <h3>No tasks yet</h3>
+            <p>Add your first academic, fitness, or personal task to start planning your day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights" class="section alt">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Expected outcome</span>
+          <h2>A dynamic environment for daily, weekly, and monthly planning</h2>
+        </div>
+
+        <div class="insight-grid">
+          <article class="insight-card">
+            <h3>Daily productivity</h3>
+            <p>Focus on what matters today with deadlines and priority labels.</p>
+          </article>
+          <article class="insight-card">
+            <h3>Weekly balance</h3>
+            <p>Keep academic work and exercise aligned with your schedule.</p>
+          </article>
+          <article class="insight-card">
+            <h3>Monthly consistency</h3>
+            <p>Build habits through repeat use, clear progress, and saved data.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="references" class="section">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">References</span>
+          <h2>APA style reference</h2>
+        </div>
+
+        <div class="references-card">
+          <p>W3Schools. (2024). <em>Web Dev Tutorials</em>. https://www.w3schools.com/</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Student Academic & Development Website</h3>
+        <p>Front-end project for student productivity, task management, and deadline tracking.</p>
+      </div>
+      <div class="footer-meta">
+        <p><strong>Project by:</strong> Abeer Kulshrestha · Aditya Singh · Aditya Shekhar</p>
+        <p><strong>Technology:</strong> HTML, CSS, JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <template id="taskTemplate">
+    <article class="task-item">
+      <div class="task-main">
+        <div class="task-top">
+          <label class="check-wrap">
+            <input type="checkbox" class="task-check" />
+            <span class="custom-check"></span>
+          </label>
+          <div class="task-title-wrap">
+            <h3 class="task-title"></h3>
+            <p class="task-notes"></p>
+          </div>
+        </div>
+        <div class="task-meta">
+          <span class="badge task-category"></span>
+          <span class="badge task-priority"></span>
+          <span class="deadline-text"></span>
+        </div>
+      </div>
+      <div class="task-actions">
+        <button type="button" class="icon-action edit-task">Edit</button>
+        <button type="button" class="icon-action delete-task">Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
